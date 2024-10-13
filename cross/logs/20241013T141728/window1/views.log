@@ -30,3 +30,4 @@
 2024-10-13 14:18:21.903 [info] Removed views:extensions.recommendedList,workbench.views.extensions.popular,workbench.views.extensions.installed from workbench.view.extensions
 2024-10-13 14:18:21.914 [info] Added views:workbench.views.extensions.marketplace in workbench.view.extensions
 2024-10-13 14:18:24.399 [info] Added views:dockerContainers,dockerImages,dockerRegistries,dockerNetworks,dockerVolumes,vscode-docker.views.dockerContexts,vscode-docker.views.help in workbench.view.extension.dockerView
+2024-10-13 15:17:12.773 [info] Added views:workbench.scm.history in workbench.view.scm
