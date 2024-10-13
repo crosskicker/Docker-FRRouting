@@ -4,7 +4,7 @@ FROM ubuntu:22.04
 # Mainteneur de l'image (optionnel)
 LABEL maintainer="alban.personnaz@gmail.com"
 
-#Installation et configuration du routage avec FRRouting
+# Installation et configuration du routage avec FRRouting
 RUN apt-get update && apt-get install -y curl gnupg2 lsb-release \
     && curl -s https://deb.frrouting.org/frr/keys.asc | apt-key add - \
     && echo deb https://deb.frrouting.org/frr $(lsb_release -s -c) frr-stable | tee -a /etc/apt/sources.list.d/frr.list \
@@ -16,5 +16,11 @@ RUN apt-get update && apt-get install -y curl gnupg2 lsb-release \
 # Exposer les ports pour les protocoles courants (modifie selon tes besoins)
 EXPOSE 179 2601 2604
 
-# Commande par défaut pour démarrer FRRouting
-CMD ["/usr/lib/frr/frrinit.sh", "start"]
+# Copier le script d'entrée dans le conteneur
+COPY entrypoint.sh /entrypoint.sh
+
+# Donner les droits d'exécution au script
+RUN chmod +x /entrypoint.sh
+
+# Utiliser le script comme point d'entrée
+ENTRYPOINT ["/entrypoint.sh"]

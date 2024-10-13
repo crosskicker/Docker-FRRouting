@@ -1,0 +1,23 @@
+2024-10-13 14:17:30.436 [info] Extension host with pid 445447 started
+2024-10-13 14:17:30.453 [info] ExtensionService#_doActivateExtension vscode.git-base, startup: true, activationEvent: '*', root cause: vscode.git
+2024-10-13 14:17:30.461 [info] ExtensionService#_doActivateExtension vscode.git, startup: true, activationEvent: '*'
+2024-10-13 14:17:30.530 [info] ExtensionService#_doActivateExtension vscode.github, startup: true, activationEvent: '*'
+2024-10-13 14:17:30.740 [info] Eager extensions activated
+2024-10-13 14:17:30.773 [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch, startup: false, activationEvent: 'onStartupFinished'
+2024-10-13 14:17:30.776 [info] ExtensionService#_doActivateExtension vscode.merge-conflict, startup: false, activationEvent: 'onStartupFinished'
+2024-10-13 14:17:58.276 [info] Extension host terminating: renderer closed the MessagePort
+2024-10-13 14:17:58.291 [info] Extension host with pid 445447 exiting with code 0
+2024-10-13 14:17:59.241 [info] Extension host with pid 445597 started
+2024-10-13 14:17:59.241 [info] Skipping acquiring lock for /home/cross/Bureau/projet/docker/cross/User/workspaceStorage/7cd21b0076a84dc35ca4a41fde270593.
+2024-10-13 14:17:59.299 [info] ExtensionService#_doActivateExtension vscode.git-base, startup: true, activationEvent: '*'
+2024-10-13 14:17:59.347 [info] ExtensionService#_doActivateExtension vscode.github, startup: true, activationEvent: '*'
+2024-10-13 14:17:59.393 [info] Eager extensions activated
+2024-10-13 14:17:59.415 [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch, startup: false, activationEvent: 'onStartupFinished'
+2024-10-13 14:17:59.420 [info] ExtensionService#_doActivateExtension vscode.merge-conflict, startup: false, activationEvent: 'onStartupFinished'
+2024-10-13 14:18:01.470 [info] ExtensionService#_doActivateExtension vscode.git, startup: false, activationEvent: 'api', root cause: vscode.github
+2024-10-13 14:18:03.852 [info] ExtensionService#_doActivateExtension vscode.emmet, startup: false, activationEvent: 'onLanguage'
+2024-10-13 14:18:24.474 [info] ExtensionService#_doActivateExtension ms-azuretools.vscode-docker, startup: false, activationEvent: 'onLanguage:dockerfile'
+2024-10-13 14:19:21.226 [info] ExtensionService#_doActivateExtension vscode.extension-editing, startup: false, activationEvent: 'onLanguage:markdown'
+2024-10-13 14:19:21.247 [info] ExtensionService#_doActivateExtension vscode.markdown-language-features, startup: false, activationEvent: 'onLanguage:markdown'
+2024-10-13 14:19:21.606 [info] ExtensionService#_doActivateExtension vscode.markdown-math, startup: false, activationEvent: 'api', root cause: vscode.markdown-language-features
+2024-10-13 14:24:28.521 [info] ExtensionService#_doActivateExtension vscode.npm, startup: false, activationEvent: 'onTerminalQuickFixRequest:ms-vscode.npm-command'

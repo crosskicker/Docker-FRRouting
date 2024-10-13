@@ -1,0 +1,20 @@
+version: '3'
+services:
+  frr1:
+    image: frr2           # Utiliser l'image 'frr2'
+    container_name: frr1   # Nommer ce conteneur 'frr1'
+    privileged: true       # Nécessaire pour FRRouting
+    networks:
+      - frr-net            # Assigner au réseau frr-net
+
+  frr2:
+    image: frr2           # Utiliser l'image 'frr2'
+    container_name: frr2   # Nommer ce conteneur 'frr2'
+    privileged: true       # Nécessaire pour FRRouting
+    networks:
+      - frr-net            # Assigner au réseau frr-net
+
+# Définir un réseau commun pour les deux conteneurs
+networks:
+  frr-net:
+    driver: bridge
