@@ -9,12 +9,20 @@ RUN apt-get update && apt-get install -y curl gnupg2 lsb-release \
     && curl -s https://deb.frrouting.org/frr/keys.asc | apt-key add - \
     && echo deb https://deb.frrouting.org/frr $(lsb_release -s -c) frr-stable | tee -a /etc/apt/sources.list.d/frr.list \
     && apt-get update && apt-get install -y frr frr-pythontools \
-    && sed -i 's/=no/=yes/g' /etc/frr/daemons \
+    && apt install iproute2 \
+    && apt install iputils-ping \
     && sysctl -w net.ipv4.ip_forward=1 \
     && sysctl -w net.ipv6.conf.all.forwarding=1
 
 # Exposer les ports pour les protocoles courants (modifie selon tes besoins)
-EXPOSE 179 2601 2604
+EXPOSE 179 2601 2605 2604 2602 2608
+
+# Sauvegarder les configurations au niveau du routeur
+#VOLUME ["/etc/frr"]
+#via le docker compose
+
+#Copier le fichier de conf de frr
+COPY daemons /etc/frr/daemons
 
 # Copier le script d'entrée dans le conteneur
 COPY entrypoint.sh /entrypoint.sh
@@ -24,3 +32,5 @@ RUN chmod +x /entrypoint.sh
 
 # Utiliser le script comme point d'entrée
 ENTRYPOINT ["/entrypoint.sh"]
+
+
