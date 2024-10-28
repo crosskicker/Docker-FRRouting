@@ -12,6 +12,7 @@
 ## RUN
 ### Run the docker-compose file
 ``` docker-compose up -d ```
+
 ### To add routers
 change the docker-compose.yml
 
