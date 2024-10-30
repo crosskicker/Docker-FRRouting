@@ -1,0 +1,27 @@
+services:
+  r1:
+    container_name: r1
+    image: crosskicker/frr-image-c:latest
+    networks:
+    - r1-r2
+    - r1-r3
+    privileged: true
+    volumes:
+    - /etc/frr
+  r2:
+    container_name: r2
+    image: crosskicker/frr-image-c:latest
+    networks:
+    - r1-r2
+    privileged: true
+    volumes:
+    - /etc/frr
+  r3:
+    container_name: r3
+    image: crosskicker/frr-image-c:latest
+    networks:
+    - r1-r3
+    privileged: true
+    volumes:
+    - /etc/frr
+version: '3'

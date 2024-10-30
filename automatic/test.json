@@ -1,0 +1,31 @@
+{
+    "description": "Configuration file for network topologie",
+    "routers": [
+      {
+        "_comment-name": "names are generated automatically ",
+        "name": "r1",
+        "comment-connected": "1 network per router connection (2 router/network) ",
+        "connected": ["r2"]
+      },
+      {
+        "_comment": "names are generated automatically ",
+        "name": "r2",
+        "connected": ["r1","r3","r4"]
+      },
+      {
+        "_comment": "names are generated automatically ",
+        "name": "r3",
+        "connected": ["r2","r4"]
+      },
+      {
+        "_comment": "names are generated automatically ",
+        "name": "r4",
+        "connected": ["r2","r3","r5"]
+      },
+      {
+        "_comment": "names are generated automatically ",
+        "name": "r5",
+        "connected": ["r4"]
+      }
+    ]
+      }
