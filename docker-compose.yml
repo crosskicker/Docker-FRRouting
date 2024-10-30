@@ -1,7 +1,7 @@
 version: '3'
 services:
   frr1:
-    image: frr-image-c:latest           # Utiliser l'image 'frr-image-c'
+    image: crosskicker/frr-image-c:latest           # Utiliser l'image 'frr-image-c'
     container_name: frr1                # Nommer ce conteneur 'frr1'
     privileged: true                    # Nécessaire pour FRRouting
     networks:
@@ -10,7 +10,7 @@ services:
       - /etc/frr                        # Volume anonyme monté sur /etc/frr
 
   frr2:
-    image: frr-image-c:latest           # Utiliser l'image 'frr-image-c'
+    image: crosskicker/frr-image-c:latest            # Utiliser l'image 'frr-image-c'
     container_name: frr2                # Nommer ce conteneur 'frr2'
     privileged: true                    # Nécessaire pour FRRouting
     networks:
@@ -20,7 +20,7 @@ services:
       - /etc/frr                        # Volume anonyme monté sur /etc/frr
 
   frr3:
-    image: frr-image-c:latest           # Utiliser l'image 'frr-image-c'
+    image: crosskicker/frr-image-c:latest            # Utiliser l'image 'frr-image-c'
     container_name: frr3                # Nommer ce conteneur 'frr3'
     privileged: true                    # Nécessaire pour FRRouting
     networks:
