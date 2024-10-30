@@ -10,7 +10,7 @@
 ``` docker pull crosskicker/frr_ubuntu:latest ```
 
 # RUNNING PART
-There any different method to run this project and create your network.  
+There are many differents methods to run this project and create your network.  
 
 ## Running method 1
 
@@ -24,17 +24,17 @@ In this exemple 8 is the number of routers in your network project.
 Then a config.json file is generated and you have to add manually the connection between routers.  
 
 ex : {
-            "name": "r1",
-            "connected": ["r1-r2","r1-r3"]
-        },
+            "name": "r1",  
+            "connected": ["r1-r2","r1-r3"]  
+        },  
         {
-            "name": "r2",
-            "connected": ["r1-r2"]
-        },
+            "name": "r2",  
+            "connected": ["r1-r2"]  
+        },  
         {
-            "name": "r3",
-            "connected": ["r1-r3"]
-        }
+            "name": "r3",  
+            "connected": ["r1-r3"]  
+        }  
 
 You need speficy the connections, always put the lowest router number before.
 It will be usefull for the network creation in docker.
