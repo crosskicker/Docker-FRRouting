@@ -1,3 +1,6 @@
+# run.py
+# This file permit to generate and run the docker-compose.yml
+# from the configuration file confgi.json
 import json
 from ruamel.yaml import YAML
 import os
@@ -48,6 +51,15 @@ def generate_yaml(dico):
 
     with open("docker-compose.yml", "w") as file:
         yaml.dump(config, file)
+    
+def terminal_run(dico):    
+    #TODO
+    # rename shell for every container....
+    for container in dico:
+        # Construire la commande complète pour chaque terminal
+        full_command = f"xterm -hold  -fa 'Monospace' -fs 12 -e 'docker exec -it {container['name']} /bin/bash'"        # Run terminals
+        subprocess.Popen(full_command, shell=True)
+
 
 if __name__ == "__main__":
     dico_routers = read_json()
@@ -55,6 +67,7 @@ if __name__ == "__main__":
     try:
         result = subprocess.run(["docker-compose", "up", "-d"], check=True, capture_output=True, text=True)
         print("Docker Compose launched successfully.")
+        terminal_run(dico_routers)
         print(result.stdout)
     except subprocess.CalledProcessError as e:
         print("Error during docker-compose processing:")

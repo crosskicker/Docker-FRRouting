@@ -1,13 +1,9 @@
-## Pull image or Build
-### Pull from my Docker Hub
-``` docker pull crosskicker/frr-image-c:latest ```
 
-### Build the image with the Dockerfile
-``` docker build --no-cache -t frr-image-c . ```
+# Requisites
+Install Docker : 
 
-
-### Otherwise pull the image on docker hub
-``` docker pull crosskicker/frr_ubuntu:latest ```
+Install xterm : 
+``` apt install xterm ```  
 
 # RUNNING PART
 There are many differents methods to run this project and create your network.  
@@ -45,7 +41,7 @@ It will be usefull for the network creation in docker.
 
 You can run your network project, it will start all the routers  
 
-```python3 config-yaml.py ``` 
+```python3 run.py ``` 
 
 ### Step 4  
 
@@ -86,14 +82,13 @@ By default it is started automatically
 
 
 
+## Pull image or Build
+### Pull from my Docker Hub
+``` docker pull crosskicker/frr-image-c:latest ```
+
+### Build the image with the Dockerfile
+``` docker build --no-cache -t frr-image-c . ```
 
 
-
-# Old version
-
-
-### Si impossible il faut démarrer le service
-/usr/lib/frr/frrinit.sh start
-
-### Debug
-Dans Docker les réseaux sont donnés par defaut  (regarder pour les changer manuellement)
+### Otherwise pull the image on docker hub
+``` docker pull crosskicker/frr_ubuntu:latest ```

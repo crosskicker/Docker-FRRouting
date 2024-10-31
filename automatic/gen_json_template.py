@@ -34,7 +34,7 @@ def generate_json(lObj):
 
 if __name__ == "__main__":
     
-    parser = argparse.ArgumentParser(description="Network CLI instanciation")
+    parser = argparse.ArgumentParser(description="Network CLI instanciation, geenerate the template config.json")
     parser.add_argument("-n", "--nombre", help="Nombre d'itérations", type=int, default=4)
     args = parser.parse_args() 
     gen_rn(args.nombre)
