@@ -16,11 +16,13 @@ There are many differents methods to run this project and create your network.
 
 Go to /automatic  
 
+### Step 1  
 Run the file "gen_json_template.py"
 
 ex : ``` python3 gen_json_template.py -n 8 ``` 
 In this exemple 8 is the number of routers in your network project.  
 
+### Step 2  
 Then a config.json file is generated and you have to add manually the connection between routers.  
 
 ex : {
@@ -36,8 +38,20 @@ ex : {
             "connected": ["r1-r3"]  
         }  
 
-You need speficy the connections, always put the lowest router number before.
-It will be usefull for the network creation in docker.
+You need speficy the connections, always put the lowest router number before.  
+It will be usefull for the network creation in docker.  
+
+### Step 3  
+```python3 config-yaml.py ``` 
+
+### Step 4  
+
+#### To interact with the container (for configuration)  
+``` docker exec -it <container_name> /bin/bash ``` 
+#### Config the router  
+``` vtysh ```
+#### To exit  
+```exit ```
 
 ## Running method 2 (manually change the docker-compose.yml)
 More dofficult method  
