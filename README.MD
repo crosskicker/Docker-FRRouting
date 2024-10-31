@@ -42,12 +42,16 @@ You need speficy the connections, always put the lowest router number before.
 It will be usefull for the network creation in docker.  
 
 ### Step 3  
+
+You can run your network project, it will start all the routers  
+
 ```python3 config-yaml.py ``` 
 
 ### Step 4  
 
 #### To interact with the container (for configuration)  
-``` docker exec -it <container_name> /bin/bash ``` 
+``` docker exec -it <container_name> /bin/bash ```   
+(info : container_name = r1 or r2 ... )  
 #### Config the router  
 ``` vtysh ```
 #### To exit  
