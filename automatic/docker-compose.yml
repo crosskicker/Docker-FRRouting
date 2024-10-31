@@ -23,10 +23,21 @@ services:
     privileged: true
     networks:
     - r1-r3
+    - r3-r4
+    volumes:
+    - /etc/frr
+  r4:
+    image: crosskicker/frr-image-c:latest
+    container_name: r4
+    privileged: true
+    networks:
+    - r3-r4
     volumes:
     - /etc/frr
 networks:
   r1-r2:
     driver: bridge
   r1-r3:
+    driver: bridge
+  r3-r4:
     driver: bridge

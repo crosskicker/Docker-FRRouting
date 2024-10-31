@@ -1,56 +1,61 @@
 import json
-import yaml 
+from ruamel.yaml import YAML
+import os
+import subprocess
 
-# Return
-# dico = {routeur_name1 : [...connection...],
-#           ... }
 def read_json():
     try:
-        # Open template
         with open("config.json", "r") as file:
             config = json.load(file)
     except FileNotFoundError:
-        print("Erreur : File doesn't exists.")
+        print("Erreur : File doesn't exist.")
     except IOError:
-        print("Erreur : Error : Can't read the file.")
+        print("Erreur : Can't read the file.")
+        return {}
 
-    # To visualize data
-    for elem in config["routers"]:
-        #obj
-        print(elem)
-        #name
-        print(elem["name"])
-        #name list (connection)
-        print(elem["connected"])
-    return config["routers"]
-
+    return config.get("routers", [])
 
 def generate_yaml(dico):
-    config = {"version": "3", "services": {}, "networks":{}}
+    net_L = []
+    # Initialiser le dictionnaire dans l'ordre voulu sans OrderedDict
+    config = {
+        "version": "3",
+        "services": {},
+        "networks": {}
+    }
 
-    # Ajouter chaque élément du dictionnaire d'entrée
+    # Remplir la section 'services'
     for elem in dico:
+        net_L.append(elem["connected"])
         service_name = elem["name"]
         config['services'][service_name] = {
             'image': 'crosskicker/frr-image-c:latest',
             'container_name': service_name,
             'privileged': True,
             'networks': elem["connected"],
-            'volumes': [
-                '/etc/frr'
-            ]
+            'volumes': ['/etc/frr']
         }
-    
-    # TODO 
-    # network part in Dockerfile 
 
-    # Sauvegarder les modifications dans le fichier YAML
-    with open("temp.yml", "w") as file:
-        yaml.dump(config, file, default_flow_style=False)
+    # Construire la section 'networks' sans doublons
+    unique_networks = list(dict.fromkeys([n for sublist in net_L for n in sublist]))
+    for network in unique_networks:
+        config["networks"][network] = {'driver': 'bridge'}
 
-    
+    # Écrire dans le fichier YAML avec l'ordre garanti
+    yaml = YAML()
+    yaml.default_flow_style = False  # Désactive le style de flux compact
+    yaml.explicit_start = False  # Pas de document start "---"
+
+    with open("docker-compose.yml", "w") as file:
+        yaml.dump(config, file)
 
 if __name__ == "__main__":
-    print("start")
     dico_routers = read_json()
     generate_yaml(dico_routers)
+    try:
+        result = subprocess.run(["docker-compose", "up", "-d"], check=True, capture_output=True, text=True)
+        print("Docker Compose launched successfully.")
+        print(result.stdout)
+    except subprocess.CalledProcessError as e:
+        print("Error during docker-compose processing:")
+        print(e.stderr)

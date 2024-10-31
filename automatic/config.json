@@ -11,7 +11,11 @@
         },
         {
             "name": "r3",
-            "connected": ["r1-r3"]
+            "connected": ["r1-r3","r3-r4"]
+        },
+        {
+            "name": "r4",
+            "connected": ["r3-r4"]
         }
     ]
 }
