@@ -13,9 +13,9 @@ There are many differents methods to run this project and create your network.
 Go to /automatic  
 
 ### Step 1  
-Run the file "gen_json_template.py"
+Run the file "config.py"
 
-ex : ``` python3 gen_json_template.py -n 8 ``` 
+ex : ``` python3 config.py -n 8 ``` 
 In this exemple 8 is the number of routers in your network project.  
 
 ### Step 2  

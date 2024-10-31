@@ -1,3 +1,5 @@
+# config.py
+# Permit to generate a config.json file for the configuration of our networks
 import json
 import argparse
 
