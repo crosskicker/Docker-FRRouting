@@ -1,5 +1,12 @@
+# Overview
+This project permit to simulate networks via Docker and FRRouting, there are many running method, method 1 permit to abstract the use of Docker and simplify networks creation.  
 
-# Requisites
+This project is under development. Currently, it can only run on Linux, but it will soon be available on Windows. New features will also be added to enable even greater functionality.  
+
+Info :  
+It's the latest version of FRRouting, to configure different protocoles you just need to enter in router configuration with "vtysh" command, for the next respect the configuration of FRR.
+
+## Requisites
 <b>Linux</b>:  
     Install Docker :  
     ``` wget -qO- https://get.docker.com/ | sh ```  
