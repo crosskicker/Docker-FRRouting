@@ -16,13 +16,13 @@ There are many differents methods to run this project and create your network.
 
 ## Running method 1
 
-Go to /automatic
+Go to /automatic  
 ``` cd automatic/ ```  
 
 ### Step 1  
-Run the file "config.py"
+Run the file "config.py"  
 
-ex : ``` python3 config.py -n 8 ``` 
+ex : ``` python3 config.py -n 8 ```  
 In this exemple 8 is the number of routers in your network project.  
 
 ### Step 2  
