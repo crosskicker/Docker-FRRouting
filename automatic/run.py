@@ -34,6 +34,7 @@ def generate_yaml(dico):
         config['services'][service_name] = {
             'image': 'crosskicker/frr-image-c:latest',
             'container_name': service_name,
+            'hostname': elem["name"],
             'privileged': True,
             'networks': elem["connected"],
             'volumes': ['/etc/frr']

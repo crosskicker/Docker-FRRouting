@@ -21,7 +21,25 @@ In this exemple 8 is the number of routers in your network project.
 ### Step 2  
 Then a config.json file is generated and you have to add manually the connection between routers.  
 
-ex : {
+ex : 
+    <b> Before </b>  
+    ...  
+     {
+            "name": "r1",  
+            "connected": []  
+        },  
+        {
+            "name": "r2",  
+            "connected": []  
+        },  
+        {
+            "name": "r3",  
+            "connected": []  
+        }  
+        ...  
+   <b> After : </b>   
+    ...  
+     {
             "name": "r1",  
             "connected": ["r1-r2","r1-r3"]  
         },  
@@ -33,7 +51,9 @@ ex : {
             "name": "r3",  
             "connected": ["r1-r3"]  
         }  
+        ...  
 
+In this example router r1 is connected to router r2 and router r3, (so router r2 is connected to router r1 "r1-r2" and r3 is connected to r1 "r1-r3" )  
 You need speficy the connections, always put the lowest router number before.  
 It will be usefull for the network creation in docker.  
 
@@ -44,10 +64,8 @@ You can run your network project, it will start all the routers
 ```python3 run.py ``` 
 
 ### Step 4  
+In every terminals you can configured a specific router.  
 
-#### To interact with the container (for configuration)  
-``` docker exec -it <container_name> /bin/bash ```   
-(info : container_name = r1 or r2 ... )  
 #### Config the router  
 ``` vtysh ```
 #### To exit  
