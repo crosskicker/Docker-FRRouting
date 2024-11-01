@@ -24,8 +24,7 @@ def generate_yaml(dico):
     config = {
         "version": "3",
         "services": {},
-        "networks": {},
-        "volumes": {}
+        "networks": {}
     }
 
     # Create section 'services'
