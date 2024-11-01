@@ -18,3 +18,7 @@ try:
     subprocess.run("pkill xterm", shell=True, check=True)
 except subprocess.CalledProcessError:
     print("Impossible to kill xterm process")
+try:
+    subprocess.run("rm -r ./volumes/r* ", shell=True, check=True)
+except subprocess.CalledProcessError:
+    print("Impossible to erase volumes children folders")

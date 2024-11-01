@@ -24,11 +24,19 @@ def generate_yaml(dico):
     config = {
         "version": "3",
         "services": {},
-        "networks": {}
+        "networks": {},
+        "volumes": {}
     }
 
-    # Remplir la section 'services'
+    # Create section 'services'
     for elem in dico:
+        # Create folders for volume binding
+        try:
+            subprocess.run(["mkdir", "-p", f"./volumes/{elem["name"]}"], check=True)
+            subprocess.run(f"cp ./volumes/save/* ./volumes/{elem['name']}", shell=True, check=True)
+        except subprocess.CalledProcessError as e:
+            print("Error during volumes folders creation : ", e)
+
         net_L.append(elem["connected"])
         service_name = elem["name"]
         config['services'][service_name] = {
@@ -37,7 +45,7 @@ def generate_yaml(dico):
             'hostname': elem["name"],
             'privileged': True,
             'networks': elem["connected"],
-            'volumes': ['/etc/frr']
+            'volumes': [f'./volumes/{elem["name"]}:/etc/frr']
         }
 
     # Construire la section 'networks' sans doublons

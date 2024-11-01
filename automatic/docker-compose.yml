@@ -9,7 +9,7 @@ services:
     - r1-r2
     - r1-r3
     volumes:
-    - /etc/frr
+    - ./volumes/r1:/etc/frr
   r2:
     image: crosskicker/frr-image-c:latest
     container_name: r2
@@ -18,7 +18,7 @@ services:
     networks:
     - r1-r2
     volumes:
-    - /etc/frr
+    - ./volumes/r2:/etc/frr
   r3:
     image: crosskicker/frr-image-c:latest
     container_name: r3
@@ -27,9 +27,10 @@ services:
     networks:
     - r1-r3
     volumes:
-    - /etc/frr
+    - ./volumes/r3:/etc/frr
 networks:
   r1-r2:
     driver: bridge
   r1-r3:
     driver: bridge
+volumes: {}

@@ -11,6 +11,7 @@ It's the latest version of FRRouting, to configure different protocoles you just
     Install Docker :  
     ``` wget -qO- https://get.docker.com/ | sh ```  
     Install xterm :  
+    ``` pip3 install -r requirements.txt```  
     ``` apt install xterm ```    
 
 <b>Windows</b>:  
@@ -97,7 +98,7 @@ To have the network configuration you need to change manually the docker-compose
 change the docker-compose.yml
 
 #### Run an other router container
-``` docker run  --privileged -d -v /etc/frr  --name <frr-n°> --network <network_name> frr-image-c:latest ```
+``` docker run  --privileged -d --name <frr-n°> --network <network_name> frr-image-c:latest ```
 
 
 ## To interact with the container (for configuration)
