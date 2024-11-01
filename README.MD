@@ -1,16 +1,23 @@
 
 # Requisites
-Install Docker : 
+Linux:  
+    Install Docker : 
+    ``` wget -qO- https://get.docker.com/ | sh ``` 
+    Install xterm : 
+    ``` apt install xterm ```  
 
-Install xterm : 
-``` apt install xterm ```  
+Windows:  
+    https://desktop.docker.com/win/main/amd64/Docker%20Desktop%20Installer.exe?utm_source=docker&utm_medium=webreferral&utm_campaign=dd-smartbutton&utm_location=module  
+
+ 
 
 # RUNNING PART
 There are many differents methods to run this project and create your network.  
 
 ## Running method 1
 
-Go to /automatic  
+Go to /automatic
+``` cd automatic/ ```  
 
 ### Step 1  
 Run the file "config.py"
@@ -21,7 +28,7 @@ In this exemple 8 is the number of routers in your network project.
 ### Step 2  
 Then a config.json file is generated and you have to add manually the connection between routers.  
 
-ex : 
+ex :  
     <b> Before </b>  
     ...  
      {
@@ -37,23 +44,23 @@ ex :
             "connected": []  
         }  
         ...  
-   <b> After : </b>   
+   <b> After :  </b>   
     ...  
      {
             "name": "r1",  
-            "connected": ["r1-r2","r1-r3"]  
+            "connected": ["<b>r1-r2</b>","<b>r1-r3</b>"]  
         },  
         {
             "name": "r2",  
-            "connected": ["r1-r2"]  
+            "connected": ["<b>r1-r2</b>"]  
         },  
         {
             "name": "r3",  
-            "connected": ["r1-r3"]  
+            "connected": ["<b>r1-r3</b>"]  
         }  
         ...  
 
-In this example router r1 is connected to router r2 and router r3, (so router r2 is connected to router r1 "r1-r2" and r3 is connected to r1 "r1-r3" )  
+In this example router r1 is connected to router r2 and router r3, (so router r2 is connected to router r1 "<b>r1-r2</b>" and r3 is connected to r1 "<b>r1-r3</b>" )  
 You need speficy the connections, always put the lowest router number before.  
 It will be usefull for the network creation in docker.  
 
