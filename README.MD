@@ -1,5 +1,5 @@
 # Overview
-This project permit to simulate networks via Docker and FRRouting, there are many running method, method 1 permit to abstract the use of Docker and simplify networks creation.  
+This project permit to simulate networks via Docker and FRRouting, there are many running method, method "Automatic" permit to abstract the use of Docker and simplify networks creation.  
 
 This project is under development. Currently, it can only run on Linux, but it will soon be available on Windows. New features will also be added to enable even greater functionality.  
 
@@ -22,7 +22,7 @@ It's the latest version of FRRouting, to configure different protocoles you just
 # RUNNING PART
 There are many differents methods to run this project and create your network.  
 
-## Running method 1
+## Running method "Automatic"
 
 Go to /automatic  
 ``` cd automatic/ ```  
