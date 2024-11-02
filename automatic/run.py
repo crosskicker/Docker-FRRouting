@@ -61,10 +61,8 @@ def generate_yaml(dico):
         yaml.dump(config, file)
     
 def terminal_run(dico):    
-    #TODO
-    # rename shell for every container....
     for container in dico:
-        # Construire la commande complète pour chaque terminal
+        # Run terminals
         full_command = f"xterm -hold  -fa 'Monospace' -fs 12 -e 'docker exec -it {container['name']} /bin/bash'"        # Run terminals
         subprocess.Popen(full_command, shell=True)
 

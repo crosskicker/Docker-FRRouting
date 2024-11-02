@@ -33,4 +33,3 @@ networks:
     driver: bridge
   r1-r3:
     driver: bridge
-volumes: {}

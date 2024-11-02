@@ -82,9 +82,19 @@ You can run your network project, it will start all the routers
 In every terminals you can configured a specific router.  
 
 #### Config the router  
-``` vtysh ```
+``` vtysh ```  
+(configure your routers)  
+
+Save configuration :  
+```write memory ```  
+
 #### To exit  
 ```exit ```
+
+### Step 5 (Optionnal)
+
+You can export your project :  
+```python3 export.py [-o <project name>] ```    
 
 ## Running method 2 (manually change the docker-compose.yml)
 More dofficult method  
