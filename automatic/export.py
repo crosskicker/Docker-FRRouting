@@ -13,6 +13,9 @@ def tar_project(name):
         for file in files_to_include:
             tarf.add(file)
 
+#TODO 
+# generate a script to run the exported project
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=" To export the network project in tar format")
     parser.add_argument("-o", "--output", help="name of tar project", type=str, default=4)

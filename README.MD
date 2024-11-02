@@ -34,7 +34,7 @@ ex : ``` python3 config.py -n 8 ```
 In this exemple 8 is the number of routers in your network project.  
 
 ### Step 2  
-Then a config.json file is generated and you have to add manually the connection between routers.  
+Then a config.json file is generated and you have to add manually the connection (networks links) between routers.  
 
 ex :  
     <b> Before </b>  
