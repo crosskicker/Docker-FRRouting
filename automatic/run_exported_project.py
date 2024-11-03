@@ -1,7 +1,7 @@
 import json
 import subprocess
 
-
+dico = None
 
     
 def terminal_run(dico):    
