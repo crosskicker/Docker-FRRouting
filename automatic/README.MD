@@ -2,7 +2,7 @@
 Install xterm :  
     ``` pip3 install -r requirements.txt```  
     ``` apt install xterm ```   
-    
+
 ## Running method "Automatic"
 
 Go to /automatic  
@@ -60,7 +60,9 @@ You can run your network project, it will start all the routers
 ```python3 run.py ``` 
 
 ### Step 4  
-In every terminals you can configured a specific router.  
+In every terminals you can configured a specific router.   
+Info : By default Docker gives ip address for every network interface,  
+it's usefull to save time but you can change ip addresses ( read "network_configuration" in Documentation folder)  
 
 #### Config the router  
 ``` vtysh ```  

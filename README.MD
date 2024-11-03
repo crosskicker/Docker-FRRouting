@@ -21,9 +21,9 @@ There are many differents methods to run this project and create your network.
 
 <b>Automatic method</b> :  
 In CLI most of the time ( easy to configure )  
-go to automatic/  
+go to automatic folder  
 
 <b>Manually method</b> :  
-(more difficult => for those who have Docker experienced )  
-go to manually/  
+(more difficult and takes times => for those who have Docker experienced )  
+go to manually folder  
 
