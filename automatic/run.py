@@ -6,6 +6,10 @@ from ruamel.yaml import YAML
 import os
 import subprocess
 
+# read_json
+# permit to read the config.json file to give information on networks configuration  
+# with the aim to generate the docker-compose
+# output : dictionnary with name (str) and network list (str list)
 def read_json():
     try:
         with open("config.json", "r") as file:
@@ -18,9 +22,12 @@ def read_json():
 
     return config.get("routers", [])
 
+# generate_yaml
+# permit to generate the docker-compose.yml to build 
+# our networks and create folders for volumes 
+# input : dictionnary with networks information
 def generate_yaml(dico):
     net_L = []
-    # Initialiser le dictionnaire dans l'ordre voulu sans OrderedDict
     config = {
         "version": "3",
         "services": {},
@@ -47,26 +54,32 @@ def generate_yaml(dico):
             'volumes': [f'./volumes/{elem["name"]}:/etc/frr']
         }
 
-    # Construire la section 'networks' sans doublons
+    # create list of all the networks
     unique_networks = list(dict.fromkeys([n for sublist in net_L for n in sublist]))
     for network in unique_networks:
         config["networks"][network] = {'driver': 'bridge'}
 
-    # Écrire dans le fichier YAML avec l'ordre garanti
+    # YAML configuration
     yaml = YAML()
-    yaml.default_flow_style = False  # Désactive le style de flux compact
-    yaml.explicit_start = False  # Pas de document start "---"
+    yaml.default_flow_style = False  
+    yaml.explicit_start = False  
 
+    # YAML file creation
     with open("docker-compose.yml", "w") as file:
         yaml.dump(config, file)
-    
+
+# terminal_run
+# to run one terminal per router/container
+# with xterm
+# input : dictionnary of networks configuration
 def terminal_run(dico):    
     for container in dico:
         # Run terminals
         full_command = f"xterm -hold  -fa 'Monospace' -fs 12 -e 'docker exec -it {container['name']} /bin/bash'"        # Run terminals
         subprocess.Popen(full_command, shell=True)
 
-
+# main
+# run all the fonctions and run the docker-compose.yml
 if __name__ == "__main__":
     dico_routers = read_json()
     generate_yaml(dico_routers)

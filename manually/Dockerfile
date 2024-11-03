@@ -17,13 +17,6 @@ RUN apt-get update && apt-get install -y curl gnupg2 lsb-release \
 # Exposer les ports pour les protocoles courants (modifie selon tes besoins)
 EXPOSE 179 2601 2605 2604 2602 2608
 
-# Sauvegarder les configurations au niveau du routeur
-#VOLUME ["/etc/frr"]
-#via le docker compose
-
-#Copier le fichier de conf de frr
-COPY daemons /etc/frr/daemons
-
 # Copier le script d'entrée dans le conteneur
 COPY entrypoint.sh /entrypoint.sh
 

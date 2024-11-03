@@ -1,3 +1,5 @@
+# erase.py
+# to delete all the contains and kill running process
 import subprocess
 
 
