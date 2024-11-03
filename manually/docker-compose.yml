@@ -1,0 +1,40 @@
+version: '3'  # Define the version of the Docker Compose file format
+
+services:
+  r1:  # Define the first service, named 'r1'
+    image: crosskicker/frr-image-c:latest  # Use the Docker image 'crosskicker/frr-image-c' with the 'latest' tag
+    container_name: r1  # Set the container name to 'r1' for easy identification
+    hostname: r1  # Set the hostname within the container to 'r1'
+    privileged: true  # Grant extended privileges to the container, required for networking functions in FRRouting
+    networks:
+      - r1-r2  # Connect the container to the 'r1-r2' network
+      - r1-r3  # Connect the container to the 'r1-r3' network, allowing it to route between both
+    volumes:
+      - ./volumes/r1:/etc/frr  # Mount the local directory './volumes/r1' to '/etc/frr' in the container for persistent configuration
+
+  r2:  # Define the second service, named 'r2'
+    image: crosskicker/frr-image-c:latest  # Use the same Docker image as 'r1'
+    container_name: r2  # Set the container name to 'r2'
+    hostname: r2  # Set the hostname to 'r2'
+    privileged: true  # Extended privileges are required for FRRouting
+    networks:
+      - r1-r2  # Connect 'r2' to the 'r1-r2' network to communicate with 'r1'
+    volumes:
+      - ./volumes/r2:/etc/frr  # Mount the directory './volumes/r2' for persistent storage of configurations
+
+  r3:  # Define the third service, named 'r3'
+    image: crosskicker/frr-image-c:latest  # Use the same image as 'r1' and 'r2'
+    container_name: r3  # Set the container name to 'r3'
+    hostname: r3  # Set the hostname within the container to 'r3'
+    privileged: true  # Grant extended privileges for networking tasks in FRRouting
+    networks:
+      - r1-r3  # Connect 'r3' to the 'r1-r3' network for communication with 'r1'
+    volumes:
+      - ./volumes/r3:/etc/frr  # Mount the './volumes/r3' directory for persistent configurations
+
+networks:
+  r1-r2:
+    driver: bridge  # Define 'r1-r2' as a bridge network to allow Layer 2 connectivity between 'r1' and 'r2'
+
+  r1-r3:
+    driver: bridge  # Define 'r1-r3' as another bridge network to allow Layer 2 connectivity between 'r1' and 'r3'

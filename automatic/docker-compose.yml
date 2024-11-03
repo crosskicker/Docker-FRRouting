@@ -1,0 +1,35 @@
+version: '3'
+services:
+  r1:
+    image: crosskicker/frr-image-c:latest
+    container_name: r1
+    hostname: r1
+    privileged: true
+    networks:
+    - r1-r2
+    - r1-r3
+    volumes:
+    - ./volumes/r1:/etc/frr
+  r2:
+    image: crosskicker/frr-image-c:latest
+    container_name: r2
+    hostname: r2
+    privileged: true
+    networks:
+    - r1-r2
+    volumes:
+    - ./volumes/r2:/etc/frr
+  r3:
+    image: crosskicker/frr-image-c:latest
+    container_name: r3
+    hostname: r3
+    privileged: true
+    networks:
+    - r1-r3
+    volumes:
+    - ./volumes/r3:/etc/frr
+networks:
+  r1-r2:
+    driver: bridge
+  r1-r3:
+    driver: bridge

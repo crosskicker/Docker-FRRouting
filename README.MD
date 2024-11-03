@@ -1,46 +1,29 @@
-## Pull image or Build
-### Pull from my Docker Hub
-``̀  docker pull crosskicker/frr-image-c:latest ```
+# Overview
+This project permit to simulate networks via Docker and FRRouting, there are many running method, method "Automatic" permit to abstract the use of Docker and simplify networks creation.  
 
-### Build the image with the Dockerfile
-``` docker build --no-cache -t frr-image-c . ```
+This project is under development. Currently, it can only run on Linux, but it will soon be available on Windows. New features will also be added to enable even greater functionality.  
 
+Info :  
+It's the latest version of FRRouting, to configure different protocoles you just need to enter in router configuration with "vtysh" command, for the next respect the configuration of FRR.
 
-### Otherwise pull the image on docker hub
-``` docker pull crosskicker/frr_ubuntu:latest ```
+## Requisites
+<b>Linux</b>:  
+    Install Docker :  
+    ``` wget -qO- https://get.docker.com/ | sh ```     
 
-## RUN
-### Run the docker-compose file
-``` docker-compose up -d ```
+<b>Windows</b>:  
+    https://desktop.docker.com/win/main/amd64/Docker%20Desktop%20Installer.exe?utm_source=docker&utm_medium=webreferral&utm_campaign=dd-smartbutton&utm_location=module  
 
-### To add routers
-change the docker-compose.yml
+ 
 
-#### Run an other router container
-``` docker run  --privileged -d -v /etc/frr  --name <frr-n°> --network <network_name> frr-image-c:latest ```
+# RUNNING PART
+There are many differents methods to run this project and create your network.  
 
+<b>Automatic method</b> :  
+In CLI most of the time ( easy to configure )  
+go to automatic folder  
 
-## To interact with the container (for configuration)
-``` docker exec -it <container_name> /bin/bash ``` 
-### Config the router
-``` vtysh ```
-### To exit 
-```exit ```
+<b>Manually method</b> :  
+(more difficult and takes times => for those who have Docker experienced )  
+go to manually folder  
 
-### Demarrer le service de routing
-/etc/init.d/frr restart
-
-
-
-
-
-
-
-# Old version
-
-
-### Si impossible il faut démarrer le service
-/usr/lib/frr/frrinit.sh start
-
-### Debug
-Dans Docker les réseaux sont donnés par defaut  (regarder pour les changer manuellement)
