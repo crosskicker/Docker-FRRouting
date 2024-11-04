@@ -21,7 +21,7 @@ function Device({ name }) {
 
       {/* Liste déroulante conditionnelle */}
       {isDropdownVisible && (
-        <div className="absolute top-full mt-2 w-40 bg-gray-800 text-white p-2 rounded shadow-lg">
+        <div className="flex top-full mt-2 w-40 bg-gray-800 text-white p-2 rounded shadow-lg">
           <ul className="flex flex-col space-y-2">
             <li className="hover:bg-gray-700 p-2 rounded">Option 1</li>
             <li className="hover:bg-gray-700 p-2 rounded">Option 2</li>
