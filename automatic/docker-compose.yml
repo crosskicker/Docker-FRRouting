@@ -7,7 +7,6 @@ services:
     privileged: true
     networks:
     - r1-r2
-    - r1-r3
     volumes:
     - ./volumes/r1:/etc/frr
   r2:
@@ -24,12 +23,25 @@ services:
     container_name: r3
     hostname: r3
     privileged: true
-    networks:
-    - r1-r3
+    networks: []
     volumes:
     - ./volumes/r3:/etc/frr
+  r4:
+    image: crosskicker/frr-image-c:latest
+    container_name: r4
+    hostname: r4
+    privileged: true
+    networks: []
+    volumes:
+    - ./volumes/r4:/etc/frr
+  r5:
+    image: crosskicker/frr-image-c:latest
+    container_name: r5
+    hostname: r5
+    privileged: true
+    networks: []
+    volumes:
+    - ./volumes/r5:/etc/frr
 networks:
   r1-r2:
-    driver: bridge
-  r1-r3:
     driver: bridge

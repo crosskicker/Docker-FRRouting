@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import routerLogo from '../assets/router_logo.png';
+import DraggableComponent from './DraggableComponent';
+
 
 function Device({ name }) {
   // État pour contrôler la visibilité de la liste déroulante
@@ -34,7 +35,7 @@ function Device({ name }) {
         <div className="flex top-full mt-2 w-40 bg-gray-800 text-white p-2 rounded shadow-lg">
           <ul className="flex flex-col space-y-2">
             <li className="hover:bg-gray-700 p-2 rounded cursor-pointer flex flex-col" onClick={addRouter}>
-            <img src={routerLogo} alt="PB Router FRR"  className="w-12 h-12 inline-block mr-2"  />
+            <DraggableComponent/>
             <p>Router FRR</p>
             </li>
           </ul>

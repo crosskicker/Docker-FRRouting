@@ -3,7 +3,7 @@
     "routers": [
         {
             "name": "r1",
-            "connected": ["r1-r2","r1-r3"]
+            "connected": ["r1-r2"]
         },
         {
             "name": "r2",
@@ -11,7 +11,15 @@
         },
         {
             "name": "r3",
-            "connected": ["r1-r3"]
+            "connected": []
+        },
+        {
+            "name": "r4",
+            "connected": []
+        },
+        {
+            "name": "r5",
+            "connected": []
         }
     ]
 }
