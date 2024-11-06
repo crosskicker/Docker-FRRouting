@@ -33,7 +33,7 @@ function Device({ name }) {
           <ul className="flex flex-col space-y-2">
               {netDeviceL.map((device) => (
                 <li  key={device.id} className="hover:bg-gray-700 p-2 rounded cursor-pointer flex flex-col" onClick={addRouter}>
-                  <DraggableComponent srcImg={device.image}/>
+                  <DraggableComponent srcImg={device.image} idImg={device.id}/>
                   <p>Router FRR</p>
                 </li>
               ))}

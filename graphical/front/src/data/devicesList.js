@@ -4,12 +4,14 @@ import routerLogo from '../assets/router_logo.png';
 const netDeviceL = [
   {
     id: 1,
-    loc: null,
+    x: 0,
+    y: 0,
     image: routerLogo,
   },
   {
     id: 2,
-    loc: null,
+    x: 0,
+    y: 0,
     image: routerLogo,
   },
 ];

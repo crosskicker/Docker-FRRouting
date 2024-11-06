@@ -1,40 +1,55 @@
 import React, { useState, useEffect } from 'react';
 import { useDrop } from 'react-dnd';
 import routerLogo from '../assets/router_logo.png';
+import netDeviceL from '../data/devicesList';
 
 function Board() {
-  const [isDrop, setDrop] = useState(false);
-  const [imagePosition, setImagePosition] = useState({ x: 0, y: 0 });
 
+  const [board, setBoard] = useState([]);
   
   const [{ isOver }, drop] = useDrop(() => ({
     accept: 'ITEM',
-    drop: (item, monitor) => {
-      const clientOffset = monitor.getClientOffset(); // Récupérer la position de la souris au moment du drop
-      if (clientOffset) {
-        setImagePosition({ x: clientOffset.x, y: clientOffset.y });
-        setDrop(true);
-      }
-    },
+    drop: (item, monitor) => addDeviceToBoard(item.id,monitor),
     collect: (monitor) => ({
       isOver: !!monitor.isOver(),
     }),
   }));
 
+  /* TODO 
+  gerer l'identifiant des img qui doit etre unique
+  générer une list de ce qu'on cré pour la fetch
+  */
+  const addDeviceToBoard = (id,monitor) => {
+    const clientOffset = monitor.getClientOffset(); // Récupérer la position de la souris au moment du drop
+    if (clientOffset) {
+      const netDeviceLBis = netDeviceL.filter((picture) => id === picture.id);
+       const updatedDevice = { 
+        image: netDeviceLBis[0].image,
+        x: clientOffset.x , 
+        y: clientOffset.y ,
+        id : netDeviceLBis[0].id 
+      }; 
+      console.log(clientOffset.x+" et "+clientOffset.y)
+      setBoard((board) => [...board, updatedDevice]);
+    }
+    
+  }
+  /* TODO 
+  gerer l'identifiant des img qui doit etre unique
+  générer une list de ce qu'on cré pour la fetch
+  */
   return (
-    <div ref={drop} className="w-5/6 h-7/8 relative">
-      {isDrop && (
-        <img
-          src={routerLogo}
-          style={{
+    <div ref={drop} className="w-5/6 h-7/8 flex">
+      {board.map((picture) => {
+          return <img key={picture.id} src={picture.image} 
+             style={{
             position: 'absolute',
-            left: imagePosition.x,
-            top: imagePosition.y,
-          }}
-          alt="PB Router FRR"
+            left: picture.x ,
+            top: picture.y ,
+          }} 
           className="w-12 h-12 inline-block mr-2"
-        />
-      )}
+           />;
+        })}
     </div>
   );
 }

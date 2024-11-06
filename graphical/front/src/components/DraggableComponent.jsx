@@ -3,10 +3,10 @@ import { useDrag } from 'react-dnd';
 /* import routerLogo from '../assets/router_logo.png';
  */
 
-function DraggableComponent({srcImg}) {
+function DraggableComponent({srcImg,idImg}) {
   const [{ isDragging }, drag, preview] = useDrag(() => ({
     type: 'ITEM',
-    item: { type: 'ITEM' },
+    item: { id : idImg },
     collect: (monitor) => ({
       isDragging: !!monitor.isDragging(),
     }),
