@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import DraggableComponent from './DraggableComponent';
-
+import netDeviceL from '../data/devicesList';
 
 function Device({ name }) {
   // État pour contrôler la visibilité de la liste déroulante
@@ -28,16 +28,15 @@ function Device({ name }) {
         {name}
       </div>
 
-      {/* Liste déroulante conditionnelle */}
-      {/* Créer un nouveau composant pour ce qui est invisible car cette partie
-      est différentes pour les autres */}
       {isDropdownVisible && (
         <div className="flex top-full mt-2 w-40 bg-gray-800 text-white p-2 rounded shadow-lg">
           <ul className="flex flex-col space-y-2">
-            <li className="hover:bg-gray-700 p-2 rounded cursor-pointer flex flex-col" onClick={addRouter}>
-            <DraggableComponent/>
-            <p>Router FRR</p>
-            </li>
+              {netDeviceL.map((device) => (
+                <li  key={device.id} className="hover:bg-gray-700 p-2 rounded cursor-pointer flex flex-col" onClick={addRouter}>
+                  <DraggableComponent srcImg={device.image}/>
+                  <p>Router FRR</p>
+                </li>
+              ))}
           </ul>
         </div>
       )}

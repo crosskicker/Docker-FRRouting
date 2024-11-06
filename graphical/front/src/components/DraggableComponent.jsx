@@ -1,8 +1,9 @@
 import React from 'react';
 import { useDrag } from 'react-dnd';
-import routerLogo from '../assets/router_logo.png';
+/* import routerLogo from '../assets/router_logo.png';
+ */
 
-function DraggableComponent() {
+function DraggableComponent({srcImg}) {
   const [{ isDragging }, drag, preview] = useDrag(() => ({
     type: 'ITEM',
     item: { type: 'ITEM' },
@@ -14,7 +15,7 @@ function DraggableComponent() {
   return (
     <div ref={drag}>
       <img
-        src={routerLogo}
+        src={srcImg}
         alt="PB Router FRR"
         style={{
           opacity: isDragging ? 0.5 : 1,
