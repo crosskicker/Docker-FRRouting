@@ -1,25 +1,27 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useDrag } from 'react-dnd';
 import routerLogo from '../assets/router_logo.png';
 
 function DraggableComponent() {
-  const [{ isDragging }, drag] = useDrag(() => ({
+  const [{ isDragging }, drag, preview] = useDrag(() => ({
     type: 'ITEM',
-    /* item: { id: 5 }, */
+    item: { type: 'ITEM' },
     collect: (monitor) => ({
       isDragging: !!monitor.isDragging(),
     }),
   }));
 
-  
-
   return (
-    <div>
-    <img ref={drag}
-      style={{
-        opacity: isDragging ? 0.5 : 1,
-        cursor: 'move',
-      }}  src={routerLogo} alt="PB Router FRR"  className="w-12 h-12 inline-block mr-2"  />
+    <div ref={drag}>
+      <img
+        src={routerLogo}
+        alt="PB Router FRR"
+        style={{
+          opacity: isDragging ? 0.5 : 1,
+          cursor: 'move',
+        }}
+        className="w-12 h-12 inline-block mr-2"
+      />
     </div>
   );
 }

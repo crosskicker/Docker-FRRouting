@@ -1,50 +1,40 @@
-import React from 'react';
-import { useDrag } from 'react-dnd';
+import React, { useState, useEffect } from 'react';
+import { useDrop } from 'react-dnd';
 import routerLogo from '../assets/router_logo.png';
-import { useState } from 'react';
-import { useDrop } from "react-dnd";
-
-
 
 function Board() {
-    const elemList = [
-        {
-          id: 1,
-          loc:null
-            },
-        {
-          id: 2,
-          loc:null
-        },
-        {
-          id: 3,
-          loc:null
-        },
-      ];
-    /*  temporaire */
-    const [isDrop, setDrop] = useState(false);
+  const [isDrop, setDrop] = useState(false);
+  const [imagePosition, setImagePosition] = useState({ x: 0, y: 0 });
 
-
-    const [board, setBoard] = useState([]);
-
-    const [{ isOver }, drop] = useDrop(() => ({
-      accept: "ITEM",
-      drop: () => addElemToBoard(),
-      collect: (monitor) => ({
-        isOver: !!monitor.isOver(),
-      }),
-    }));
-
-    const addElemToBoard = () => {
+  
+  const [{ isOver }, drop] = useDrop(() => ({
+    accept: 'ITEM',
+    drop: (item, monitor) => {
+      const clientOffset = monitor.getClientOffset(); // Récupérer la position de la souris au moment du drop
+      if (clientOffset) {
+        setImagePosition({ x: clientOffset.x, y: clientOffset.y });
         setDrop(true);
-        console.log("on vient de drop un element")
-      };
+      }
+    },
+    collect: (monitor) => ({
+      isOver: !!monitor.isOver(),
+    }),
+  }));
 
   return (
-    <div ref={drop} className="w-5/6 h-7/8">
-        {isDrop && (
-    <img src={routerLogo} alt="PB Router FRR" className="w-12 h-12 inline-block mr-2" />
-  )}
+    <div ref={drop} className="w-5/6 h-7/8 relative">
+      {isDrop && (
+        <img
+          src={routerLogo}
+          style={{
+            position: 'absolute',
+            left: imagePosition.x,
+            top: imagePosition.y,
+          }}
+          alt="PB Router FRR"
+          className="w-12 h-12 inline-block mr-2"
+        />
+      )}
     </div>
   );
 }
