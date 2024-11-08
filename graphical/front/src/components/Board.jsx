@@ -9,6 +9,7 @@ import {
   useNodesState,
   useEdgesState,
   addEdge,
+  MiniMap
 } from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
 import ImageNode from './ImageNode' ;
@@ -37,11 +38,16 @@ function Board() {
     [setEdges]
   );
 
+  /* TODO 
+  calculer deux constante pour bien placer les images
+  il faut soustraitre le header et le bandeau gauche
+  */
   const addDeviceToBoard = async (id, monitor) => {
     const clientOffset = monitor.getClientOffset();
     if (clientOffset) {
       const netDeviceLBis = netDeviceL.filter((picture) => id === picture.id);
       const id_n = idCounter.current++;
+      
       const newNode = {
         id: id_n.toString(),
         type: 'imageNode',
@@ -72,6 +78,7 @@ function Board() {
         nodeTypes={nodeTypes} // Spécifie les types de nœuds personnalisés
       >
         <Background />
+        <MiniMap/>
       </ReactFlow>
     </div>
   );
