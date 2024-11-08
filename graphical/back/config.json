@@ -1,0 +1,25 @@
+{
+    "description": "Configuration file for network topologie",
+    "routers": [
+        {
+            "name": "r1",
+            "connected": ["r1-r2"]
+        },
+        {
+            "name": "r2",
+            "connected": ["r1-r2"]
+        },
+        {
+            "name": "r3",
+            "connected": []
+        },
+        {
+            "name": "r4",
+            "connected": []
+        },
+        {
+            "name": "r5",
+            "connected": []
+        }
+    ]
+}
