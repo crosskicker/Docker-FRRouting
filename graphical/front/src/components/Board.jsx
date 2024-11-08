@@ -2,6 +2,7 @@ import React, { useState, useEffect,useRef } from 'react';
 import { useDrop } from 'react-dnd';
 import routerLogo from '../assets/router_logo.png';
 import netDeviceL from '../data/devicesList';
+import fetchElemToBoard from '../fetching/fetchElem'
 
 function Board() {
 
@@ -21,7 +22,7 @@ function Board() {
   gerer l'identifiant des img qui doit etre unique
   générer une list de ce qu'on cré pour la fetch
   */
-  const addDeviceToBoard = (id,monitor) => {
+  const addDeviceToBoard = async (id,monitor) => {
     const clientOffset = monitor.getClientOffset(); // Récupérer la position de la souris au moment du drop
     if (clientOffset) {
       const netDeviceLBis = netDeviceL.filter((picture) => id === picture.id);
@@ -37,13 +38,19 @@ function Board() {
       /* console.log(clientOffset.x+" et "+clientOffset.y) */
       console.log("id_n de Img : " + id_n)
       setBoard((board) => [...board, updatedDevice]);
+
+      try {
+        await fetchElemToBoard(updatedDevice,"/add-to-board");
+        console.log("Élément ajouté et serveur notifié :", updatedDevice);
+      } catch (error) {
+        console.error("Erreur lors de l'envoi au serveur :", error);
+      }
+
     }
     
   }
-  /* TODO 
-  gerer l'identifiant des img qui doit etre unique
-  générer une list de ce qu'on cré pour la fetch
-  */
+  
+
   return (
     <div ref={drop} className="w-5/6 h-7/8 flex">
       {board.map((picture) => {
