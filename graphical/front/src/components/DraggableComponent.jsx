@@ -15,6 +15,7 @@ function DraggableComponent({srcImg,idImg}) {
   return (
     <div ref={drag}>
       <img
+        id = {idImg}
         src={srcImg}
         alt="PB Router FRR"
         style={{

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect,useRef } from 'react';
 import { useDrop } from 'react-dnd';
 import routerLogo from '../assets/router_logo.png';
 import netDeviceL from '../data/devicesList';
@@ -6,6 +6,8 @@ import netDeviceL from '../data/devicesList';
 function Board() {
 
   const [board, setBoard] = useState([]);
+
+  const idCounter = useRef(1);
   
   const [{ isOver }, drop] = useDrop(() => ({
     accept: 'ITEM',
@@ -23,13 +25,17 @@ function Board() {
     const clientOffset = monitor.getClientOffset(); // Récupérer la position de la souris au moment du drop
     if (clientOffset) {
       const netDeviceLBis = netDeviceL.filter((picture) => id === picture.id);
-       const updatedDevice = { 
+      const id_n = idCounter.current++;
+       const updatedDevice = {
         image: netDeviceLBis[0].image,
-        x: clientOffset.x , 
+        x: clientOffset.x ,
         y: clientOffset.y ,
-        id : netDeviceLBis[0].id 
-      }; 
-      console.log(clientOffset.x+" et "+clientOffset.y)
+        id : netDeviceLBis[0].id,
+        id_n : id_n,
+      };
+
+      /* console.log(clientOffset.x+" et "+clientOffset.y) */
+      console.log("id_n de Img : " + id_n)
       setBoard((board) => [...board, updatedDevice]);
     }
     
@@ -41,7 +47,7 @@ function Board() {
   return (
     <div ref={drop} className="w-5/6 h-7/8 flex">
       {board.map((picture) => {
-          return <img key={picture.id} src={picture.image} 
+          return <img  key={picture.id_n}  src={picture.image} 
              style={{
             position: 'absolute',
             left: picture.x ,
