@@ -13,11 +13,7 @@ function Device({ name }) {
     setDropdownVisible(!isDropdownVisible);
   };
 
-  const addRouter = () => {
-    setNbRouter((prevNbRouter) => prevNbRouter + 1);
-    setRouterList([...routerList, `router${nbRouter}` ]);
-    console.log(routerList);
-  };
+
   return (
     <div className="relative">
       {/* Élément cliquable */}
@@ -32,7 +28,7 @@ function Device({ name }) {
         <div className="flex top-full mt-2 w-40 bg-gray-800 text-white p-2 rounded shadow-lg">
           <ul className="flex flex-col space-y-2">
               {netDeviceL.map((device) => (
-                <li  key={device.id} className="hover:bg-gray-700 p-2 rounded cursor-pointer flex flex-col" onClick={addRouter}>
+                <li  key={device.id} className="hover:bg-gray-700 p-2 rounded cursor-pointer flex flex-col">
                   <DraggableComponent srcImg={device.image} idImg={device.id}/>
                   <p>Router FRR</p>
                 </li>
