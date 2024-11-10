@@ -1,6 +1,5 @@
 import React, { useState, useRef, useCallback } from 'react';
 import { useDrop } from 'react-dnd';
-import routerLogo from '../assets/router_logo.png';
 import netDeviceL from '../data/devicesList';
 import fetchElemToBoard from '../fetching/fetchElem';
 import {
@@ -9,20 +8,20 @@ import {
   useNodesState,
   useEdgesState,
   addEdge,
-  MiniMap
+  MiniMap,
+  applyNodeChanges,
+  applyEdgeChanges,
 } from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
-import ImageNode from './ImageNode' ;
- 
-
+import ImageNode from './ImageNode';
 
 const nodeTypes = {
   imageNode: ImageNode,
 };
 
-function Board() {
-  const [nodes, setNodes, onNodesChange] = useNodesState([]);
-  const [edges, setEdges, onEdgesChange] = useEdgesState([]);
+function Board({ inConnection }) {
+  const [nodes, setNodes] = useNodesState([]);
+  const [edges, setEdges] = useEdgesState([]);
   const idCounter = useRef(1);
 
   const [{ isOver }, drop] = useDrop(() => ({
@@ -33,26 +32,31 @@ function Board() {
     }),
   }));
 
+  const onNodesChange = useCallback(
+    (changes) => setNodes((nds) => applyNodeChanges(changes, nds)),
+    []
+  );
+  const onEdgesChange = useCallback(
+    (changes) => setEdges((eds) => applyEdgeChanges(changes, eds)),
+    []
+  );
+
   const onConnect = useCallback(
     (params) => setEdges((eds) => addEdge(params, eds)),
     [setEdges]
   );
 
-  /* TODO 
-  calculer deux constante pour bien placer les images
-  il faut soustraitre le header et le bandeau gauche
-  */
   const addDeviceToBoard = async (id, monitor) => {
     const clientOffset = monitor.getClientOffset();
     if (clientOffset) {
       const netDeviceLBis = netDeviceL.filter((picture) => id === picture.id);
       const id_n = idCounter.current++;
-      
+
       const newNode = {
         id: id_n.toString(),
         type: 'imageNode',
         position: { x: clientOffset.x, y: clientOffset.y },
-        data: { image: netDeviceLBis[0].image },
+        data: { image: netDeviceLBis[0].image, toConnect : inConnection },
         id_c: id,
       };
 
@@ -75,11 +79,12 @@ function Board() {
         onNodesChange={onNodesChange}
         onEdgesChange={onEdgesChange}
         onConnect={onConnect}
-        nodeTypes={nodeTypes} // Spécifie les types de nœuds personnalisés
+        nodeTypes={nodeTypes}
       >
         <Background />
-        <MiniMap/>
+        <MiniMap />
       </ReactFlow>
+      {inConnection && <p>on est en mode connect</p>}
     </div>
   );
 }

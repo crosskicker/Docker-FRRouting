@@ -2,8 +2,10 @@
 import React from 'react';
 import Device from './Device'
 import Connection from './Connection'
+import  { useState} from 'react';
 
-function SidebarLeft() {
+function SidebarLeft({setInConnection}) {
+  
   return (
     <div className=" w-1/6 h-7/8 bg-gray-800 text-white p-4 flex flex-col space-y-4">
       <h2 className="text-xl font-bold">Sidebar</h2>
@@ -15,7 +17,7 @@ function SidebarLeft() {
         <Device name = "Network device"/>
         <Device name = "Network service"/>
         <Device name = "Network terminal"/>
-        <Connection></Connection>
+        <Connection setInConnection={setInConnection}></Connection>
       </div>
     </div>
   );

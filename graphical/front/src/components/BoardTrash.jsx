@@ -13,7 +13,7 @@ import { ReactFlow,
   addEdge, } from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
 
-function Board() {
+function BoardTrash() {
 
   /* TEMPORAIRE */
   const initialNodes = [
@@ -94,4 +94,4 @@ function Board() {
   );
 }
 
-export default Board;
+export default BoardTrash;
