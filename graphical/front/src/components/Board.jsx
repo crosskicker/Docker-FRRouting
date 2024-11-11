@@ -20,6 +20,35 @@ const nodeTypes = {
 };
 
 function Board({ inConnection }) {
+  const [selectedNodes, setSelectedNodes] = useState([]); // Pour stocker les nœuds cliqués
+
+  const onNodeClick = useCallback(
+  (event, node) => {
+    if (inConnection) {
+      setSelectedNodes((prevNodes) => {
+        if (prevNodes.length === 1) {
+          // Deuxième nœud cliqué
+          console.log("Deux noeuds ont été cliqués :", prevNodes[0], node);
+          addConnection(prevNodes[0].id,node.id);
+          // Appelle ici la fonction qui fait `console.log` ou une autre action
+          return []; // Réinitialise après deux clics
+        } else {
+          return [node]; // Stocke le premier nœud cliqué
+        }
+      });
+    }
+  },
+  [inConnection]
+  );
+/*   TODO
+  gerer les erreurs
+  custom les edges */
+  const addConnection = (id1, id2) => {
+    const newEdge = { id: `${id1}-${id2}`, source: id1, target: id2 };
+    setEdges((eds) => [...eds, newEdge]);
+  };
+  
+
   const [nodes, setNodes] = useNodesState([]);
   const [edges, setEdges] = useEdgesState([]);
   const idCounter = useRef(1);
@@ -56,7 +85,7 @@ function Board({ inConnection }) {
         id: id_n.toString(),
         type: 'imageNode',
         position: { x: clientOffset.x, y: clientOffset.y },
-        data: { image: netDeviceLBis[0].image, toConnect : inConnection },
+        data: { image: netDeviceLBis[0].image/* , toConnect : inConnection  */},
         id_c: id,
       };
 
@@ -80,6 +109,7 @@ function Board({ inConnection }) {
         onEdgesChange={onEdgesChange}
         onConnect={onConnect}
         nodeTypes={nodeTypes}
+        onNodeClick={onNodeClick}
       >
         <Background />
         <MiniMap />

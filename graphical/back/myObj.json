@@ -14,211 +14,7 @@
             "id": "1",
             "type": "imageNode",
             "position": {
-                "x": 511,
-                "y": 231
-            },
-            "data": {
-                "image": "/src/assets/router_logo.png"
-            },
-            "id_c": 1
-        },
-        {
-            "id": "2",
-            "type": "imageNode",
-            "position": {
-                "x": 447,
-                "y": 212
-            },
-            "data": {
-                "image": "/src/assets/router_logo.png"
-            },
-            "id_c": 1
-        },
-        {
-            "id": "3",
-            "type": "imageNode",
-            "position": {
-                "x": 890,
-                "y": 388
-            },
-            "data": {
-                "image": "/src/assets/router_logo.png"
-            },
-            "id_c": 1
-        },
-        {
-            "id": "1",
-            "type": "imageNode",
-            "position": {
-                "x": 526,
-                "y": 176
-            },
-            "data": {
-                "image": "/src/assets/router_logo.png"
-            },
-            "id_c": 1
-        },
-        {
-            "id": "2",
-            "type": "imageNode",
-            "position": {
-                "x": 447,
-                "y": 212
-            },
-            "data": {
-                "image": "/src/assets/router_logo.png"
-            },
-            "id_c": 1
-        },
-        {
-            "id": "3",
-            "type": "imageNode",
-            "position": {
-                "x": 348,
-                "y": 190
-            },
-            "data": {
-                "image": "/src/assets/router_logo.png"
-            },
-            "id_c": 1
-        },
-        {
-            "id": "1",
-            "type": "imageNode",
-            "position": {
-                "x": 460,
-                "y": 186
-            },
-            "data": {
-                "image": "/src/assets/router_logo.png"
-            },
-            "id_c": 1
-        },
-        {
-            "id": "1",
-            "type": "imageNode",
-            "position": {
-                "x": 449,
-                "y": 250
-            },
-            "data": {
-                "image": "/src/assets/router_logo.png"
-            },
-            "id_c": 1
-        },
-        {
-            "id": "2",
-            "type": "imageNode",
-            "position": {
-                "x": 366,
-                "y": 475
-            },
-            "data": {
-                "image": "/src/assets/router_logo.png"
-            },
-            "id_c": 1
-        },
-        {
-            "id": "1",
-            "type": "imageNode",
-            "position": {
-                "x": 400,
-                "y": 204
-            },
-            "data": {
-                "image": "/src/assets/router_logo.png"
-            },
-            "id_c": 1
-        },
-        {
-            "id": "1",
-            "type": "imageNode",
-            "position": {
-                "x": 467,
-                "y": 205
-            },
-            "data": {
-                "image": "/src/assets/router_logo.png"
-            },
-            "id_c": 1
-        },
-        {
-            "id": "1",
-            "type": "imageNode",
-            "position": {
-                "x": 391,
-                "y": 203
-            },
-            "data": {
-                "image": "/src/assets/router_logo.png"
-            },
-            "id_c": 1
-        },
-        {
-            "id": "2",
-            "type": "imageNode",
-            "position": {
-                "x": 447,
-                "y": 246
-            },
-            "data": {
-                "image": "/src/assets/router_logo.png"
-            },
-            "id_c": 1
-        },
-        {
-            "id": "3",
-            "type": "imageNode",
-            "position": {
                 "x": 388,
-                "y": 367
-            },
-            "data": {
-                "image": "/src/assets/router_logo.png"
-            },
-            "id_c": 1
-        },
-        {
-            "id": "1",
-            "type": "imageNode",
-            "position": {
-                "x": 314,
-                "y": 182
-            },
-            "data": {
-                "image": "/src/assets/router_logo.png"
-            },
-            "id_c": 1
-        },
-        {
-            "id": "1",
-            "type": "imageNode",
-            "position": {
-                "x": 0,
-                "y": 0
-            },
-            "data": {
-                "image": "/src/assets/router_logo.png"
-            },
-            "id_c": 1
-        },
-        {
-            "id": "2",
-            "type": "imageNode",
-            "position": {
-                "x": 0,
-                "y": 0
-            },
-            "data": {
-                "image": "/src/assets/router_logo.png"
-            },
-            "id_c": 1
-        },
-        {
-            "id": "1",
-            "type": "imageNode",
-            "position": {
-                "x": 398,
                 "y": 195
             },
             "data": {
@@ -230,8 +26,8 @@
             "id": "2",
             "type": "imageNode",
             "position": {
-                "x": 360,
-                "y": 352
+                "x": 390,
+                "y": 163
             },
             "data": {
                 "image": "/src/assets/router_logo.png"
@@ -242,8 +38,8 @@
             "id": "1",
             "type": "imageNode",
             "position": {
-                "x": 626,
-                "y": 263
+                "x": 536,
+                "y": 224
             },
             "data": {
                 "image": "/src/assets/router_logo.png"
@@ -254,8 +50,8 @@
             "id": "2",
             "type": "imageNode",
             "position": {
-                "x": 511,
-                "y": 285
+                "x": 519,
+                "y": 166
             },
             "data": {
                 "image": "/src/assets/router_logo.png"
@@ -266,8 +62,8 @@
             "id": "1",
             "type": "imageNode",
             "position": {
-                "x": 485,
-                "y": 244
+                "x": 494,
+                "y": 216
             },
             "data": {
                 "image": "/src/assets/router_logo.png"
@@ -278,139 +74,7 @@
             "id": "2",
             "type": "imageNode",
             "position": {
-                "x": 431,
-                "y": 407
-            },
-            "data": {
-                "image": "/src/assets/router_logo.png"
-            },
-            "id_c": 1
-        },
-        {
-            "id": "1",
-            "type": "imageNode",
-            "position": {
-                "x": 521,
-                "y": 292
-            },
-            "data": {
-                "image": "/src/assets/router_logo.png"
-            },
-            "id_c": 1
-        },
-        {
-            "id": "1",
-            "type": "imageNode",
-            "position": {
-                "x": 429,
-                "y": 186
-            },
-            "data": {
-                "image": "/src/assets/router_logo.png"
-            },
-            "id_c": 1
-        },
-        {
-            "id": "1",
-            "type": "imageNode",
-            "position": {
-                "x": 458,
-                "y": 210
-            },
-            "data": {
-                "image": "/src/assets/router_logo.png"
-            },
-            "id_c": 1
-        },
-        {
-            "id": "1",
-            "type": "imageNode",
-            "position": {
-                "x": 408,
-                "y": 259
-            },
-            "data": {
-                "image": "/src/assets/router_logo.png"
-            },
-            "id_c": 1
-        },
-        {
-            "id": "1",
-            "type": "imageNode",
-            "position": {
-                "x": 481,
-                "y": 307
-            },
-            "data": {
-                "image": "/src/assets/router_logo.png"
-            },
-            "id_c": 1
-        },
-        {
-            "id": "1",
-            "type": "imageNode",
-            "position": {
-                "x": 395,
-                "y": 243
-            },
-            "data": {
-                "image": "/src/assets/router_logo.png"
-            },
-            "id_c": 1
-        },
-        {
-            "id": "2",
-            "type": "imageNode",
-            "position": {
-                "x": 482,
-                "y": 208
-            },
-            "data": {
-                "image": "/src/assets/router_logo.png"
-            },
-            "id_c": 1
-        },
-        {
-            "id": "1",
-            "type": "imageNode",
-            "position": {
-                "x": 363,
-                "y": 214
-            },
-            "data": {
-                "image": "/src/assets/router_logo.png"
-            },
-            "id_c": 1
-        },
-        {
-            "id": "1",
-            "type": "imageNode",
-            "position": {
-                "x": 356,
-                "y": 184
-            },
-            "data": {
-                "image": "/src/assets/router_logo.png"
-            },
-            "id_c": 1
-        },
-        {
-            "id": "1",
-            "type": "imageNode",
-            "position": {
-                "x": 422,
-                "y": 208
-            },
-            "data": {
-                "image": "/src/assets/router_logo.png"
-            },
-            "id_c": 1
-        },
-        {
-            "id": "2",
-            "type": "imageNode",
-            "position": {
-                "x": 433,
+                "x": 473,
                 "y": 217
             },
             "data": {
@@ -422,8 +86,8 @@
             "id": "1",
             "type": "imageNode",
             "position": {
-                "x": 371,
-                "y": 214
+                "x": 425,
+                "y": 273
             },
             "data": {
                 "image": "/src/assets/router_logo.png"
@@ -434,7 +98,91 @@
             "id": "2",
             "type": "imageNode",
             "position": {
-                "x": 750,
+                "x": 580,
+                "y": 174
+            },
+            "data": {
+                "image": "/src/assets/router_logo.png"
+            },
+            "id_c": 2
+        },
+        {
+            "id": "3",
+            "type": "imageNode",
+            "position": {
+                "x": 350,
+                "y": 179
+            },
+            "data": {
+                "image": "/src/assets/router_logo.png"
+            },
+            "id_c": 1
+        },
+        {
+            "id": "1",
+            "type": "imageNode",
+            "position": {
+                "x": 407,
+                "y": 258
+            },
+            "data": {
+                "image": "/src/assets/router_logo.png"
+            },
+            "id_c": 1
+        },
+        {
+            "id": "2",
+            "type": "imageNode",
+            "position": {
+                "x": 349,
+                "y": 240
+            },
+            "data": {
+                "image": "/src/assets/router_logo.png"
+            },
+            "id_c": 2
+        },
+        {
+            "id": "1",
+            "type": "imageNode",
+            "position": {
+                "x": 453,
+                "y": 232
+            },
+            "data": {
+                "image": "/src/assets/router_logo.png"
+            },
+            "id_c": 1
+        },
+        {
+            "id": "2",
+            "type": "imageNode",
+            "position": {
+                "x": 378,
+                "y": 251
+            },
+            "data": {
+                "image": "/src/assets/router_logo.png"
+            },
+            "id_c": 1
+        },
+        {
+            "id": "1",
+            "type": "imageNode",
+            "position": {
+                "x": 353,
+                "y": 222
+            },
+            "data": {
+                "image": "/src/assets/router_logo.png"
+            },
+            "id_c": 1
+        },
+        {
+            "id": "2",
+            "type": "imageNode",
+            "position": {
+                "x": 389,
                 "y": 198
             },
             "data": {
@@ -446,8 +194,20 @@
             "id": "1",
             "type": "imageNode",
             "position": {
-                "x": 442,
-                "y": 202
+                "x": 487,
+                "y": 231
+            },
+            "data": {
+                "image": "/src/assets/router_logo.png"
+            },
+            "id_c": 1
+        },
+        {
+            "id": "2",
+            "type": "imageNode",
+            "position": {
+                "x": 233,
+                "y": 183
             },
             "data": {
                 "image": "/src/assets/router_logo.png"
@@ -458,12 +218,11 @@
             "id": "1",
             "type": "imageNode",
             "position": {
-                "x": 463,
-                "y": 187
+                "x": 393,
+                "y": 210
             },
             "data": {
-                "image": "/src/assets/router_logo.png",
-                "inConnection": false
+                "image": "/src/assets/router_logo.png"
             },
             "id_c": 1
         },
@@ -471,77 +230,59 @@
             "id": "2",
             "type": "imageNode",
             "position": {
-                "x": 330,
-                "y": 202
+                "x": 305,
+                "y": 192
             },
             "data": {
-                "image": "/src/assets/router_logo.png",
-                "inConnection": false
+                "image": "/src/assets/router_logo.png"
             },
             "id_c": 1
         },
         {
-            "id": "3",
+            "id": "1",
             "type": "imageNode",
             "position": {
-                "x": 359,
-                "y": 243
+                "x": 508,
+                "y": 161
             },
             "data": {
-                "image": "/src/assets/router_logo.png",
-                "toConnect": true
+                "image": "/src/assets/router_logo.png"
             },
             "id_c": 1
         },
         {
-            "id": "4",
+            "id": "2",
             "type": "imageNode",
             "position": {
-                "x": 359,
-                "y": 215
+                "x": 304,
+                "y": 241
             },
             "data": {
-                "image": "/src/assets/router_logo.png",
-                "toConnect": true
+                "image": "/src/assets/router_logo.png"
             },
             "id_c": 1
         },
         {
-            "id": "5",
+            "id": "1",
             "type": "imageNode",
             "position": {
-                "x": 337,
-                "y": 188
+                "x": 455,
+                "y": 184
             },
             "data": {
-                "image": "/src/assets/router_logo.png",
-                "toConnect": true
+                "image": "/src/assets/router_logo.png"
             },
             "id_c": 1
         },
         {
-            "id": "6",
+            "id": "2",
             "type": "imageNode",
             "position": {
-                "x": 316,
-                "y": 178
+                "x": 285,
+                "y": 167
             },
             "data": {
-                "image": "/src/assets/router_logo.png",
-                "toConnect": true
-            },
-            "id_c": 1
-        },
-        {
-            "id": "7",
-            "type": "imageNode",
-            "position": {
-                "x": 835,
-                "y": 359
-            },
-            "data": {
-                "image": "/src/assets/router_logo.png",
-                "toConnect": true
+                "image": "/src/assets/router_logo.png"
             },
             "id_c": 1
         }
