@@ -14,10 +14,11 @@ function ImageNode({ data, id, selected }) {
       {/* Conditionne le rendu des poignées en fonction de data.inConnection */}
       
         
-          <Handle type="target" position={Position.Top} id={`top${id}`} />
-          <Handle type="target" position={Position.Left} id={`left${id}`} />
-          <Handle type="source" position={Position.Bottom} id={`bottom${id}`} />
-          <Handle type="source" position={Position.Right} id={`right${id}`} />
+      <Handle type="target" position={Position.Top} id={`top${id}`} style={{ opacity: 0, pointerEvents: 'none' }} />
+      <Handle type="target" position={Position.Left} id={`left${id}`} style={{ opacity: 0,  pointerEvents: 'none'}} />
+      <Handle type="source" position={Position.Bottom} id={`bottom${id}`} style={{ opacity: 0, pointerEvents: 'none' }} />
+      <Handle type="source" position={Position.Right} id={`right${id}`} style={{ opacity: 0, pointerEvents: 'none' }} />
+
         
       
       <img src={data.image} alt="Device" style={{ width: '100%', height: '100%' }} />

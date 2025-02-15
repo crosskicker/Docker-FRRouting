@@ -1,4 +1,4 @@
-import React, { useState, useRef, useCallback } from 'react';
+import React, { useState, useRef, useCallback, useEffect } from 'react';
 import { useDrop } from 'react-dnd';
 import netDeviceL from '../data/devicesList';
 import fetchElemToBoard from '../fetching/fetchElem';
@@ -22,6 +22,9 @@ const nodeTypes = {
 function Board({ inConnection }) {
   const [selectedNodes, setSelectedNodes] = useState([]); // Pour stocker les nœuds cliqués
 
+  /* Creation de la connection les noeuds 
+      via les deux dernier noeud cliqué apres etre passé en mode connection
+      on crée une connection avec React Flow */
   const onNodeClick = useCallback(
   (event, node) => {
     if (inConnection) {
@@ -40,19 +43,46 @@ function Board({ inConnection }) {
   },
   [inConnection]
   );
+
+
 /*   TODO
   gerer les erreurs
   custom les edges */
   const addConnection = (id1, id2) => {
-    const newEdge = { id: `${id1}-${id2}`, source: id1, target: id2 };
-    setEdges((eds) => [...eds, newEdge]);
+    setEdges((eds) => {
+      // Vérifier si la connexion existe déjà
+      const alreadyExists = eds.some(
+        (edge) => 
+          (edge.source === id1 && edge.target === id2) || 
+          (edge.source === id2 && edge.target === id1) // Vérifie aussi l'inverse
+      );
+  
+      if (alreadyExists) {
+        console.warn(`Connexion entre ${id1} et ${id2} déjà existante.`);
+        return eds; // Retourne les edges sans modification
+      }
+  
+      console.log(`Ajout d'une connexion entre ${id1} et ${id2}`);
+      return [...eds, { id: `${id1}-${id2}`, source: id1, target: id2 }];
+    });
   };
+  
   
 
   const [nodes, setNodes] = useNodesState([]);
   const [edges, setEdges] = useEdgesState([]);
   const idCounter = useRef(1);
 
+    /* Debug des edges */
+    useEffect(() => {
+      console.log("Connexions actuelles :", edges);
+    }, [edges]);
+
+
+  /* Ajout de l'élément dans le board via le mécanisme
+      de Drag and Drop (librairie dnd)
+      Permet d'ajouter en tant que Node pour la partie React Flow via addDeviceToBoard 
+  */ 
   const [{ isOver }, drop] = useDrop(() => ({
     accept: 'ITEM',
     drop: (item, monitor) => addDeviceToBoard(item.id, monitor),
@@ -70,15 +100,20 @@ function Board({ inConnection }) {
     []
   );
 
-  const onConnect = useCallback(
-    (params) => setEdges((eds) => addEdge(params, eds)),
-    [setEdges]
-  );
+  const onConnect = useCallback(() => {
+    console.log("Connexion via Handles désactivée !");
+  }, []);
+  
+  
 
+  /* Ajout l'élément Noeud qui vient d'etre drop 
+      dans la liste des noeud de React Flow */
   const addDeviceToBoard = async (id, monitor) => {
     const clientOffset = monitor.getClientOffset();
     if (clientOffset) {
-      const netDeviceLBis = netDeviceL.filter((picture) => id === picture.id);
+/*       TODO
+à changer quand on aurait autre que des netdevice (netDeviceL)
+ */      const netDeviceLBis = netDeviceL.filter((picture) => id === picture.id);
       const id_n = idCounter.current++;
 
       const newNode = {

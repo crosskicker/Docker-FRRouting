@@ -4,7 +4,9 @@ Web application with React (and some librairies) and Flask.
 
 ## Todo
 
-- Corriger les connections des routeurs entres eux
+- Améliorer code des connections des routeurs entres eux
+- Personnaliser les edges
 - Supprimer les connection
-- Corriger l'envoi de la connection au backsend
+- Envoi de la connection au backsend
 - Mise en place de la connection via les fichiers pour Docker (Docker-compose ou config.json)
+- Corriger le backend pour le redemarrage auto a chaque ecriture de fichier de config...
