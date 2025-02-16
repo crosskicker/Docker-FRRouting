@@ -4,7 +4,8 @@ Web application with React (and some librairies) and Flask.
 
 ## Todo
 
-- Améliorer code des connections des routeurs entres eux
+- Corriger et terminer l'envoi de le connection au serveur
+- Personnaliser le cursor lors de la co et la deco
 - Personnaliser les edges
 - Supprimer les connection
 - Envoi de la connection au backsend

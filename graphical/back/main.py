@@ -40,6 +40,16 @@ def addToBoard():
     write_data(data)
     return jsonify(response), 200
 
+@app.route('/add-connection',methods=['POST'])
+def addConnection():
+    data = request.get_json()
+    response = {
+            "message": "Connection added to board successfully",
+            "received_data": data  # Inclure les données reçues pour confirmation
+        }
+    print(data)
+    #ajouter le traitement de la connection via fonction 
+    return jsonify(response), 200
 # Lancer l'application en mode développement
 if __name__ == '__main__':
     app.run(debug=True)

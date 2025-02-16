@@ -40,3 +40,11 @@
 .read-the-docs {
   color: #888;
 }
+
+.react-flow__pane {
+  cursor: grab !important; /* Curseur normal */
+}
+
+.in-connection .react-flow__pane {
+  cursor: crosshair !important; /* Curseur personnalisé en mode connexion */
+}

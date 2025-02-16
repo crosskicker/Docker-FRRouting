@@ -1,7 +1,9 @@
 import React, { useState, useRef, useCallback, useEffect } from 'react';
 import { useDrop } from 'react-dnd';
 import netDeviceL from '../data/devicesList';
-import fetchElemToBoard from '../fetching/fetchElem';
+import { fetchElemToBoard, fetchConnection } from '../fetching/fetchElem';
+
+
 import {
   ReactFlow,
   Background,
@@ -22,9 +24,12 @@ const nodeTypes = {
 function Board({ inConnection }) {
   const [selectedNodes, setSelectedNodes] = useState([]); // Pour stocker les nœuds cliqués
 
-  /* Creation de la connection les noeuds 
-      via les deux dernier noeud cliqué apres etre passé en mode connection
-      on crée une connection avec React Flow */
+  /*
+  Detection de deux noeuds cliqué
+  apres etre passé en mode connection
+  on crée une connection avec React Flow 
+  via addConnection
+  */
   const onNodeClick = useCallback(
   (event, node) => {
     if (inConnection) {
@@ -33,7 +38,6 @@ function Board({ inConnection }) {
           // Deuxième nœud cliqué
           console.log("Deux noeuds ont été cliqués :", prevNodes[0], node);
           addConnection(prevNodes[0].id,node.id);
-          // Appelle ici la fonction qui fait `console.log` ou une autre action
           return []; // Réinitialise après deux clics
         } else {
           return [node]; // Stocke le premier nœud cliqué
@@ -45,23 +49,29 @@ function Board({ inConnection }) {
   );
 
 
-/*   TODO
-  gerer les erreurs
-  custom les edges */
-  const addConnection = (id1, id2) => {
-    setEdges((eds) => {
+
+  /*   
+  Ajout de la connection entre les noeuds
+  */
+  const addConnection = async (id1, id2) => {
+    setEdges(async (eds) => {
       // Vérifier si la connexion existe déjà
       const alreadyExists = eds.some(
         (edge) => 
           (edge.source === id1 && edge.target === id2) || 
-          (edge.source === id2 && edge.target === id1) // Vérifie aussi l'inverse
+          (edge.source === id2 && edge.target === id1) 
       );
   
       if (alreadyExists) {
         console.warn(`Connexion entre ${id1} et ${id2} déjà existante.`);
-        return eds; // Retourne les edges sans modification
+        return eds; 
       }
-  
+      /* try {
+        await fetchConnection({ test: "test" }, "/add-connection");
+        console.log("Élément ajouté et serveur notifié :");
+      } catch (error) {
+        console.error("Erreur lors de l'envoi au serveur :", error);
+      } */
       console.log(`Ajout d'une connexion entre ${id1} et ${id2}`);
       return [...eds, { id: `${id1}-${id2}`, source: id1, target: id2 }];
     });
@@ -95,14 +105,23 @@ function Board({ inConnection }) {
     (changes) => setNodes((nds) => applyNodeChanges(changes, nds)),
     []
   );
-  const onEdgesChange = useCallback(
-    (changes) => setEdges((eds) => applyEdgeChanges(changes, eds)),
-    []
-  );
 
   const onConnect = useCallback(() => {
     console.log("Connexion via Handles désactivée !");
   }, []);
+  
+  /*   
+  Suppression d'une connexion
+  */
+ const onEdgeClick = useCallback(
+    (event, edge) => {
+      if (inConnection) {
+        console.log("Suppression de la connexion :", edge);
+        setEdges((eds) => eds.filter((e) => e.id !== edge.id));
+      }
+    },
+    [inConnection]
+  );
   
   
 
@@ -136,22 +155,23 @@ function Board({ inConnection }) {
   };
 
   return (
-    <div ref={drop} className="w-5/6 h-7/8 flex">
+    <div className={`w-5/6 h-7/8 flex ${inConnection ? 'in-connection' : ''}`} ref={drop}>
       <ReactFlow
         nodes={nodes}
         edges={edges}
         onNodesChange={onNodesChange}
-        onEdgesChange={onEdgesChange}
         onConnect={onConnect}
         nodeTypes={nodeTypes}
         onNodeClick={onNodeClick}
+        onEdgeClick={onEdgeClick}
       >
         <Background />
         <MiniMap />
       </ReactFlow>
-      {inConnection && <p>on est en mode connect</p>}
+      {inConnection && <p>🖱 Mode Connexion activé</p>}
     </div>
   );
+  
 }
 
 export default Board;
