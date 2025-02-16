@@ -1,0 +1,18 @@
+{
+    "description": "file for network node information",
+    "netDevice": [
+        {
+            "id": "1",
+            "type": "imageNode",
+            "position": {
+                "x": 623,
+                "y": 238
+            },
+            "data": {
+                "image": "/src/assets/router_logo.png"
+            },
+            "id_c": 1
+        }
+    ],
+    "endDevice": []
+}

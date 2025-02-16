@@ -9,4 +9,3 @@ Web application with React (and some librairies) and Flask.
 - Supprimer les connection
 - Envoi de la connection au backsend
 - Mise en place de la connection via les fichiers pour Docker (Docker-compose ou config.json)
-- Corriger le backend pour le redemarrage auto a chaque ecriture de fichier de config...

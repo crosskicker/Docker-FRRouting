@@ -9,7 +9,7 @@ CORS(app)
 def write_data(data):
     try:
         # Open template
-        with open("myObj.json", "r") as file:
+        with open("../dock/myObj.json", "r") as file:
             myObj = json.load(file)
     except FileNotFoundError:
         print("Erreur : File doesn't exists.")
@@ -20,7 +20,7 @@ def write_data(data):
 
     try:
     #generate new json
-        with open("myObj.json", "w") as file:
+        with open("../dock/myObj.json", "w") as file:
             json.dump(myObj, file, indent=4)
     except IOError:
         print(f"Error : Can't write the file.")
